@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="George Yazijy &mdash; Mechatronic Engineer and Software Developer in Test. Projects, experience, and the curiosity behind the work.">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="theme-color" content="#0c0c0c">
+  <meta property="og:title" content="George Yazijy — Mechatronic Engineer">
+  <meta property="og:description" content="Selected work, experience, and the ideas behind the code.">
+  <meta property="og:type" content="website">
+  <title>George Yazijy — Mechatronic Engineer</title>
+  <link rel="icon" href="./favicon.svg?v=d92305c2f2a1" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css?v=a447a1a57124">
+  <link rel="stylesheet" href="./journey.css?v=4f68fc8716a3">
+  <script src="./boot.js?v=6b653aaaf32a" defer></script>
+  <script src="./script.js?v=a878a20c7617" defer></script>
+  <script src="./curiosity.js?v=66aa18219f2e" defer></script>
+  <script src="./scroll-circuit.js?v=5cbb4dd103a1" defer></script>
+</head>
+<body>
+  <p id="boot-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+  <div id="boot-screen" class="boot-screen" role="dialog" aria-modal="true" aria-label="Starting George Yazijy's portfolio" aria-describedby="boot-status" tabindex="-1" hidden>
+    <div class="boot-background" aria-hidden="true">
+      <pre class="boot-decoration boot-assembly">LDR R0, [R1]
+ADD R0, #1
+STR R0, [R1]
+BX  LR</pre>
+      <pre class="boot-decoration boot-formulas">V = I · R
+P = V · I
+τ = R · C</pre>
+      <pre class="boot-decoration boot-source">while (ready) {
+  sense();
+  compute();
+  actuate();
+}</pre>
+      <pre class="boot-decoration boot-mechanics">F = m · a
+τ = J · α</pre>
+      <svg class="boot-decoration boot-schematic" viewBox="0 0 180 80" focusable="false"><path d="M8 30h25l5-9 8 18 8-18 8 18 5-9h25m0 0h30m-30 0v22m-12 0h24m-24 7h24m-12 0v10m-10 0h20m-16 5h12m-8 5h4M122 18v24m7-24v24m0-12h40"/><circle cx="92" cy="30" r="2"/></svg>
+      <svg class="boot-decoration boot-processor" viewBox="0 0 64 64" focusable="false"><path d="M16 16h32v32H16zM24 24h16v16H24zM24 8v8m8-8v8m8-8v8M24 48v8m8-8v8m8-8v8M8 24h8m-8 8h8m-8 8h8M48 24h8m-8 8h8m-8 8h8"/></svg>
+    </div>
+    <div class="boot-terminal">
+      <div class="boot-heading" aria-hidden="true"><span class="boot-user">george@portfolio</span>:<span class="boot-path">~</span>$ ./boot</div>
+      <pre id="boot-output" aria-hidden="true">&gt; booting up ...</pre>
+    </div>
+  </div>
+  <button id="replay-boot" class="boot-replay" type="button" hidden>Replay boot <span>/ preview</span></button>
+  <div class="ambient-field" aria-hidden="true">
+    <pre class="ambient-code ambient-code-left">0x00
+MOV R0, R1
+LDR R2, [R0]
+ADD R2, #1
+STR R2, [R0]
+BX LR</pre>
+    <pre class="ambient-code ambient-code-right">void loop() {
+  sense();
+  compute();
+  actuate();
+}
+0xFF</pre>
+    <span class="ambient-symbol ambient-symbol-left">{ }</span>
+    <svg class="ambient-chip" viewBox="0 0 64 64" focusable="false"><path d="M16 16h32v32H16zM24 24h16v16H24zM24 8v8m8-8v8m8-8v8M24 48v8m8-8v8m8-8v8M8 24h8m-8 8h8m-8 8h8M48 24h8m-8 8h8m-8 8h8"/></svg>
+  </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="identity" href="#intro" aria-label="George Yazijy, home"><span class="identity-code" aria-hidden="true"><span class="identity-code-text"><span class="identity-code-letter">&lt;</span><span class="identity-code-letter identity-slash">/</span><span class="identity-code-letter">&gt;</span></span></span><span class="identity-name" aria-hidden="true"><span class="identity-first"><span class="identity-letter">G</span><span class="identity-letter">E</span><span class="identity-letter">O</span><span class="identity-letter">R</span><span class="identity-letter">G</span><span class="identity-letter">E</span></span><span class="identity-last"><span class="identity-letter">Y</span><span class="identity-letter">A</span><span class="identity-letter">Z</span><span class="identity-letter">I</span><span class="identity-letter">J</span><span class="identity-letter">Y</span><span class="identity-letter identity-period">.</span></span></span></a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#resume">R&eacute;sum&eacute;</a>
+      <a class="header-contact" href="#contact">Let's connect</a>
+    </nav>
+  </header>
+  <main id="main" tabindex="-1" aria-label="Portfolio chapters">
+    <svg id="scroll-circuit" aria-hidden="true" focusable="false" hidden>
+      <path id="circuit-track" class="circuit-track"/>
+      <path id="circuit-glow" class="circuit-glow"/>
+      <path id="circuit-light" class="circuit-light"/>
+      <circle id="circuit-halo" class="circuit-halo" r="6"/>
+      <circle id="circuit-tip" class="circuit-tip" r="2"/>
+    </svg>
+    <section id="intro" class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span><span class="hero-role">MECHATRONIC ENGINEER / CREATIVE THINKER</span></p>
+        <h1 id="hero-title">Engineer by trade.<br>Curious by <span class="accent">nature.</span></h1>
+        <p class="hero-description">I'm <strong>George Yazijy</strong>, a mechatronic engineer working as a <strong>Software Developer in Test</strong>. Curious by default. Always building.</p>
+        <div class="hero-actions"><a class="button primary" href="#projects">Explore projects <span aria-hidden="true">↗</span></a><a class="text-link" href="#resume">View résumé <span aria-hidden="true">↓</span></a></div>
+      </div>
+      <div class="hero-art curiosity-art" role="img" aria-label="Curiosity builds knowledge: slowly orbiting particles become a graph with pulsing connections, then turn faint background code and binary digits into a mechatronic system with a microcontroller, motor, and sensor feedback.">
+        <div class="art-top" aria-hidden="true"><span>FIG. 01 &mdash; CURIOSITY</span><span>+ + +</span></div>
+        <canvas id="curiosity-canvas" width="440" height="360" aria-hidden="true"></canvas>
+        <div class="art-bottom" aria-hidden="true"><span class="art-caption">CURIOSITY &rarr; KNOWLEDGE</span><span id="curiosity-phase">&gt; explore()</span></div>
+      </div>
+      <div class="hero-bottom"><span>IDEAS → SYSTEMS → EXPERIENCES</span></div>
+    </section>
+    <section id="experience" class="section wrap" aria-labelledby="experience-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / PROFESSIONAL EXPERIENCE</p><h2 id="experience-title">Experience<span class="accent">.</span></h2></div><span class="section-note">ROLES & CONTRIBUTIONS</span></div>
+      <p class="resume-note">Current role shown below. Employer details, dates, and previous experience are still to be added.</p>
+      <div class="timeline"><article><span class="timeline-date">PRESENT</span><div><h3>Software Developer in Test</h3><p class="company">Company details to add</p><p>Describe your responsibilities, the systems you worked on, and an achievement you can share publicly.</p></div><span class="timeline-type">EXPERIENCE</span></article><article><span class="timeline-date">DATES TO ADD</span><div><h3>Previous role</h3><p class="company">Company name <span>/ Example role</span></p><p>Highlight a project, a collaboration, or a technical challenge that helped you grow.</p></div><span class="timeline-type">EXPERIENCE</span></article></div>
+    </section>
+    <section id="projects" class="section wrap" aria-labelledby="projects-title">
+      <div class="section-heading"><div><p class="eyebrow">02 / SELECTED PROJECTS</p><h2 id="projects-title">Projects<span class="accent">.</span></h2></div><span class="section-note">ILLUSTRATIVE PROJECTS / 2024–2026</span></div>
+      <div class="projects">
+        <article class="project"><div class="project-visual visual-one" aria-hidden="true"><span class="visual-label">01 / SYSTEMS</span><div class="diagram"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="visual-caption">CONNECTED BY DESIGN</span></div><div class="project-content"><p class="eyebrow">FULL-STACK DEVELOPMENT</p><h3>Project Atlas</h3><p>A focused workspace that brings scattered data into one clear view.</p><ul class="tags" aria-label="Example technologies"><li>TypeScript</li><li>React</li><li>PostgreSQL</li></ul><details><summary>Project overview <span aria-hidden="true">↗</span></summary><p>Placeholder project. Replace this with the problem you solved, your contribution, and a measurable result. Add a public repository or live demo when ready.</p></details></div></article>
+        <article class="project"><div class="project-visual visual-two" aria-hidden="true"><span class="visual-label">02 / INFRASTRUCTURE</span><div class="stack"><i></i><i></i><i></i><i></i></div><span class="visual-caption">BUILT FOR WHAT'S NEXT</span></div><div class="project-content"><p class="eyebrow">PLATFORM ENGINEERING</p><h3>Cloudline</h3><p>A foundation for shipping services with confidence and visibility.</p><ul class="tags" aria-label="Example technologies"><li>Python</li><li>Docker</li><li>CI/CD</li></ul><details><summary>Project overview <span aria-hidden="true">↗</span></summary><p>Placeholder project. Describe the infrastructure challenge, the design decisions you made, and how you improved reliability or delivery time.</p></details></div></article>
+        <article class="project"><div class="project-visual visual-three" aria-hidden="true"><span class="visual-label">03 / INTERACTION</span><div class="rings"><i></i><i></i><i></i><i></i></div><span class="visual-caption">LESS FRICTION. MORE FLOW.</span></div><div class="project-content"><p class="eyebrow">FRONTEND & USER EXPERIENCE</p><h3>Signal</h3><p>A minimal interface that makes complex information feel approachable.</p><ul class="tags" aria-label="Example technologies"><li>JavaScript</li><li>CSS</li><li>Accessibility</li></ul><details><summary>Project overview <span aria-hidden="true">↗</span></summary><p>Placeholder project. Explain who the interface serves, how you approached accessibility, and what you learned from building it.</p></details></div></article>
+      </div>
+    </section>
+    <section id="about" class="section wrap about" aria-labelledby="about-title"><div class="about-story"><div><p class="eyebrow">03 / A LITTLE CONTEXT</p><h2 id="about-title">Engineer by trade.<br>Curious by nature<span class="accent">.</span></h2></div><div class="about-copy"><p>I enjoy the space where thoughtful design meets dependable engineering. My approach is simple: understand the problem, build with intention, and keep improving.</p><p class="muted">This is a placeholder introduction. Add your area of expertise, what motivates you, and the kind of team you'd love to join.</p><p class="eyebrow skills-label">MY TOOLKIT <span class="muted">/ EXAMPLE SKILLS</span></p><ul class="tags skills"><li>JavaScript / TypeScript</li><li>React</li><li>Python</li><li>SQL</li><li>Git & CI/CD</li><li>Cloud infrastructure</li></ul></div></div><figure class="journey-map" aria-labelledby="journey-caption"><div class="map-heading"><span>ORIGIN / CURRENT BASE</span><span aria-hidden="true">+ &nbsp; +</span></div><img src="./assets/journey-map.svg?v=f9ea7984282e" width="456" height="340" loading="lazy" decoding="async" alt="A geometric map with two pins connected from Syria to Germany."><figcaption id="journey-caption"><div><span class="map-meta">ORIGINALLY FROM</span><strong>Syria</strong></div><span class="map-direction" aria-hidden="true">&#8594;</span><div><span class="map-meta">BASED IN</span><strong>Germany</strong></div></figcaption></figure></section>
+    <section id="resume" class="section wrap" aria-labelledby="resume-title"><div class="section-heading"><div><p class="eyebrow">04 / THE FULL PICTURE</p><h2 id="resume-title">Résumé & education<span class="accent">.</span></h2></div><button class="button secondary" id="print-cv" hidden>Save résumé as PDF <span aria-hidden="true">↗</span></button></div><p class="resume-note">Save a printable overview of my profile, skills, experience, and education. Employer details, dates, and qualification details are still to be added.</p><div class="timeline"><article><span class="timeline-date">DATES TO ADD</span><div><h3>Mechatronic Engineering</h3><p class="company">University name <span>/ Example qualification</span></p><p>Add your degree and relevant focus areas. Keep details concise and professionally relevant.</p></div><span class="timeline-type">EDUCATION</span></article></div></section>
+    <section id="contact" class="contact wrap" aria-labelledby="contact-title">
+      <p class="eyebrow">05 / MAKE A CONNECTION</p>
+      <h2 id="contact-title">Let's <span class="accent">connect.</span> <span aria-hidden="true">?</span></h2>
+      <figure class="contact-portrait">
+        <img src="./assets/george.webp?v=b46f0bc437d1" width="600" height="740" loading="lazy" decoding="async" alt="George Yazijy smiling with his arms folded.">
+        <svg class="portrait-trace" viewBox="0 0 270 370" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M16 1 H254 Q269 1 269 16 V354 Q269 369 254 369 H16 Q1 369 1 354 V16 Q1 1 16 1 Z" pathLength="100"/></svg>
+      </figure>
+      <div class="contact-bottom">
+        <p>Have a role or a project in mind? Let's connect.</p>
+        <dl class="contact-channels" aria-label="Contact details coming soon">
+          <div><dt>LinkedIn</dt><dd>Profile link coming soon</dd></div>
+          <div><dt>Email</dt><dd>Contact address coming soon</dd></div>
+          <div><dt>Elsewhere</dt><dd>More ways to connect coming soon</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap"><span>© <span id="year">2026</span> George Yazijy</span><span class="footer-note">BUILT WITH INTENTION.</span><a href="#intro">Back to intro</a></footer>
+</body>
+</html>
