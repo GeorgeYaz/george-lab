@@ -13,11 +13,11 @@
   <title>George Yazijy — Mechatronic Engineer</title>
   <link rel="icon" href="./favicon.svg?v=d92305c2f2a1" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css?v=a447a1a57124">
-  <link rel="stylesheet" href="./journey.css?v=4f68fc8716a3">
+  <link rel="stylesheet" href="./journey.css?v=d9e01d669e5e">
   <script src="./boot.js?v=6b653aaaf32a" defer></script>
-  <script src="./script.js?v=a878a20c7617" defer></script>
+  <script src="./script.js?v=dfec57d75eef" defer></script>
   <script src="./curiosity.js?v=66aa18219f2e" defer></script>
-  <script src="./scroll-circuit.js?v=5cbb4dd103a1" defer></script>
+  <script src="./scroll-circuit.js?v=944c566878e3" defer></script>
 </head>
 <body>
   <p id="boot-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
@@ -47,12 +47,6 @@ P = V · I
   </div>
   <button id="replay-boot" class="boot-replay" type="button" hidden>Replay boot <span>/ preview</span></button>
   <div class="ambient-field" aria-hidden="true">
-    <pre class="ambient-code ambient-code-left">0x00
-MOV R0, R1
-LDR R2, [R0]
-ADD R2, #1
-STR R2, [R0]
-BX LR</pre>
     <pre class="ambient-code ambient-code-right">void loop() {
   sense();
   compute();
@@ -85,7 +79,7 @@ BX LR</pre>
       <div class="hero-copy">
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span><span class="hero-role">MECHATRONIC ENGINEER / CREATIVE THINKER</span></p>
         <h1 id="hero-title">Engineer by trade.<br>Curious by <span class="accent">nature.</span></h1>
-        <p class="hero-description">I'm <strong>George Yazijy</strong>, a mechatronic engineer working as a <strong>Software Developer in Test</strong>. Curious by default. Always building.</p>
+        <p class="hero-description">A mechatronic engineer working as a <strong>Software Developer in Test</strong>, focused on <strong>software test automation</strong>. Curious by default. Always learning and building.</p>
         <div class="hero-actions"><a class="button primary" href="#projects">Explore projects <span aria-hidden="true">↗</span></a><a class="text-link" href="#resume">View résumé <span aria-hidden="true">↓</span></a></div>
       </div>
       <div class="hero-art curiosity-art" role="img" aria-label="Curiosity builds knowledge: slowly orbiting particles become a graph with pulsing connections, then turn faint background code and binary digits into a mechatronic system with a microcontroller, motor, and sensor feedback.">
@@ -96,9 +90,48 @@ BX LR</pre>
       <div class="hero-bottom"><span>IDEAS → SYSTEMS → EXPERIENCES</span></div>
     </section>
     <section id="experience" class="section wrap" aria-labelledby="experience-title">
-      <div class="section-heading"><div><p class="eyebrow">01 / PROFESSIONAL EXPERIENCE</p><h2 id="experience-title">Experience<span class="accent">.</span></h2></div><span class="section-note">ROLES & CONTRIBUTIONS</span></div>
-      <p class="resume-note">Current role shown below. Employer details, dates, and previous experience are still to be added.</p>
-      <div class="timeline"><article><span class="timeline-date">PRESENT</span><div><h3>Software Developer in Test</h3><p class="company">Company details to add</p><p>Describe your responsibilities, the systems you worked on, and an achievement you can share publicly.</p></div><span class="timeline-type">EXPERIENCE</span></article><article><span class="timeline-date">DATES TO ADD</span><div><h3>Previous role</h3><p class="company">Company name <span>/ Example role</span></p><p>Highlight a project, a collaboration, or a technical challenge that helped you grow.</p></div><span class="timeline-type">EXPERIENCE</span></article></div>
+      <div class="section-heading"><div><p class="eyebrow">01 / PROFESSIONAL EXPERIENCE</p><h2 id="experience-title">Experience<span class="accent">.</span></h2></div><span class="section-note">ENGINEERING IN PRACTICE</span></div>
+      <div class="timeline"><article><div class="experience-date-panel"><span class="timeline-date"><time datetime="2022-09">SEP 2022</time> &mdash; PRESENT</span><svg class="job-animation job-dialysis" viewBox="0 0 180 145" aria-hidden="true" focusable="false">
+<path d="M112 26 V8 H125 M118 8 V15"/><rect x="114" y="15" width="8" height="16" rx="2"/>
+<rect x="49" y="12" width="55" height="35" rx="4"/><rect x="54" y="17" width="45" height="23" rx="1"/>
+<path class="job-signal" d="M59 25 H70 M59 30 H82 M59 35 H75"/><path d="M88 23 H94 M88 28 H94 M88 33 H94 M75 47 V53"/>
+<path d="M48 53 H105 Q109 53 109 57 V118 H45 V57 Q45 53 48 53 Z M45 102 H109 M55 109 H73 M55 114 H73"/>
+<rect x="51" y="59" width="51" height="37" rx="3"/>
+<circle cx="64" cy="72" r="8"/><circle cx="88" cy="72" r="8"/>
+<g transform="translate(64 72)"><g class="job-pump"><path d="M-5 0 H5"/><circle cx="-5" cy="0" r="1.5"/><circle cx="5" cy="0" r="1.5"/></g></g>
+<g transform="translate(88 72)"><g class="job-pump"><path d="M-5 0 H5"/><circle cx="-5" cy="0" r="1.5"/><circle cx="5" cy="0" r="1.5"/></g></g>
+<rect x="121" y="55" width="9" height="30" rx="3"/><path d="M125.5 59 V81 M122 61 H129 M122 78 H129" class="job-faint"/>
+<path d="M118 31 V43 Q118 49 125.5 49 V55 M125.5 85 V92 Q125.5 98 117 98 H111 Q106 98 106 88 H64 V80"/>
+<path class="job-fluid" d="M118 31 V43 Q118 49 125.5 49 V55 M125.5 85 V92 Q125.5 98 117 98 H111 Q106 98 106 88 H64 V80"/>
+<path d="M63 118 V127 M91 118 V127 M51 128 H103 M77 118 V133 H113"/>
+<circle cx="54" cy="132" r="4"/><circle cx="101" cy="132" r="4"/><circle cx="113" cy="136" r="3"/>
+</svg></div><div><h3>Expert Test Automation Engineer</h3><p class="company">Fresenius Medical Care GmbH &middot; Germany</p><p class="muted">Dialysis systems and medical technology.</p><ul class="experience-tasks">
+<li>Own the EXAM test automation framework, develop custom Python test libraries, and maintain an automation rate above 90% of test cases.</li>
+<li>Develop and improve HIL, SIL, and UI test environments for medical device software.</li>
+<li>Build Azure DevOps pipelines for continuous delivery and testing, and serve as the main contact for test automation across software systems.</li>
+</ul></div><span class="timeline-type">EXPERIENCE</span></article><article><div class="experience-date-panel"><span class="timeline-date"><time datetime="2020-09">SEP 2020</time> &mdash; <time datetime="2021-09">SEP 2021</time></span><svg class="job-animation job-terminal" viewBox="0 0 180 110" aria-hidden="true" focusable="false">
+<path class="job-faint" d="M8 20 V8 H172 V20 M8 98 V104 H172 V98"/>
+<text x="16" y="23">C++ / UNIT TESTS</text>
+<g class="job-code"><text x="16" y="43">int add(int a, int b)</text><text x="16" y="57">{ return a + b; }</text></g>
+<text class="job-check-first" x="16" y="77">[PASS] add(2, 3) == 5</text>
+<text class="job-check-second" x="16" y="93">[FAIL] add(0, 1) == 0</text>
+</svg></div><div><h3>Student Assistant</h3><p class="company">University of Applied Sciences W&uuml;rzburg-Schweinfurt (FHWS)</p><p class="muted">Faculty of Electrical Engineering &middot; Schweinfurt, Germany</p><p>Created exercises for the Computer Science I and Computing I courses. Developed and ran unit tests to verify the solutions to those exercises.</p></div><span class="timeline-type">EXPERIENCE</span></article><article><div class="experience-date-panel"><span class="timeline-date"><time datetime="2018-05-01">MAY 2018</time> &mdash; <time datetime="2019-05-05">MAY 2019</time></span><svg class="job-animation" viewBox="0 0 180 100" aria-hidden="true" focusable="false">
+<defs><clipPath id="bottle-window"><rect x="9" y="18" width="162" height="47"/></clipPath></defs>
+<g clip-path="url(#bottle-window)"><g class="job-bottles"><g transform="translate(-18 0)"><path d="M-4 24 H4 V32 L8 39 V61 Q8 64 5 64 H-5 Q-8 64 -8 61 V39 L-4 32 Z M-4 28 H4 M-8 46 H8 M-8 55 H8"/></g><g transform="translate(18 0)"><path d="M-4 24 H4 V32 L8 39 V61 Q8 64 5 64 H-5 Q-8 64 -8 61 V39 L-4 32 Z M-4 28 H4 M-8 46 H8 M-8 55 H8"/></g><g transform="translate(54 0)"><path d="M-4 24 H4 V32 L8 39 V61 Q8 64 5 64 H-5 Q-8 64 -8 61 V39 L-4 32 Z M-4 28 H4 M-8 46 H8 M-8 55 H8"/></g><g transform="translate(90 0)"><path d="M-4 24 H4 V32 L8 39 V61 Q8 64 5 64 H-5 Q-8 64 -8 61 V39 L-4 32 Z M-4 28 H4 M-8 46 H8 M-8 55 H8"/></g><g transform="translate(126 0)"><path d="M-4 24 H4 V32 L8 39 V61 Q8 64 5 64 H-5 Q-8 64 -8 61 V39 L-4 32 Z M-4 28 H4 M-8 46 H8 M-8 55 H8"/></g><g transform="translate(162 0)"><path d="M-4 24 H4 V32 L8 39 V61 Q8 64 5 64 H-5 Q-8 64 -8 61 V39 L-4 32 Z M-4 28 H4 M-8 46 H8 M-8 55 H8"/></g><g transform="translate(198 0)"><path d="M-4 24 H4 V32 L8 39 V61 Q8 64 5 64 H-5 Q-8 64 -8 61 V39 L-4 32 Z M-4 28 H4 M-8 46 H8 M-8 55 H8"/></g></g></g>
+<rect x="9" y="68" width="162" height="13" rx="6.5"/>
+<path d="M24 81 V91 M156 81 V91 M18 91 H30 M150 91 H162"/>
+<g class="job-rollers"><circle cx="22" cy="74.5" r="3"/><circle cx="49" cy="74.5" r="3"/><circle cx="76" cy="74.5" r="3"/><circle cx="103" cy="74.5" r="3"/><circle cx="130" cy="74.5" r="3"/><circle cx="157" cy="74.5" r="3"/></g>
+<path d="M17 11 H53 M48 7 L53 11 L48 15" class="job-faint"/>
+</svg></div><div><h3>Mechatronics Engineer</h3><p class="company">Joud Company &mdash; Pepsi Co.</p><p>Installed, assembled, and overhauled machinery, including the KRONES Contiform S16, at a PET soft drinks bottling plant. Maintained equipment, electronic components, actuators, control panels, and sensors. Reprogrammed and performed online monitoring of Siemens S7-300 PLCs using SIMATIC S7.</p></div><span class="timeline-type">EXPERIENCE</span></article><article><div class="experience-date-panel"><span class="timeline-date"><time datetime="2016-07">JUL 2016</time> &mdash; <time datetime="2016-09">SEP 2016</time></span><svg class="job-animation" viewBox="0 0 180 100" aria-hidden="true" focusable="false">
+<rect x="16" y="30" width="48" height="50" rx="4"/>
+<rect x="23" y="37" width="34" height="18" rx="1"/>
+<path class="job-signal" d="M27 47 H33 L36 42 L40 51 L44 45 H53"/>
+<path d="M25 63 H42 M25 69 H35 M25 80 V87 M55 80 V87 M64 56 H72 V21 H112 L137 35"/>
+<circle cx="25" cy="90" r="3"/><circle cx="55" cy="90" r="3"/>
+<circle cx="112" cy="21" r="3"/><path d="M130 34 L136 29 L146 40 L139 46 Z"/>
+<path d="M100 78 H166 M107 83 H159 M115 83 V91 M151 83 V91"/>
+<g class="job-laser"><path d="M142 45 L126 76 M142 45 L152 76" class="job-faint"/><path d="M142 45 L138 76"/><ellipse cx="138" cy="77" rx="9" ry="1.5"/></g>
+</svg></div><div><h3>Engineering Intern</h3><p class="company">MEDerm &mdash; Medical Equipment</p><p>Gained hands-on experience in the installation, assembly, calibration, and maintenance of medical equipment. Trained to operate the equipment and test its operating controls and user interfaces.</p></div><span class="timeline-type">INTERNSHIP</span></article></div>
     </section>
     <section id="projects" class="section wrap" aria-labelledby="projects-title">
       <div class="section-heading"><div><p class="eyebrow">02 / SELECTED PROJECTS</p><h2 id="projects-title">Projects<span class="accent">.</span></h2></div><span class="section-note">ILLUSTRATIVE PROJECTS / 2024–2026</span></div>
@@ -108,7 +141,7 @@ BX LR</pre>
         <article class="project"><div class="project-visual visual-three" aria-hidden="true"><span class="visual-label">03 / INTERACTION</span><div class="rings"><i></i><i></i><i></i><i></i></div><span class="visual-caption">LESS FRICTION. MORE FLOW.</span></div><div class="project-content"><p class="eyebrow">FRONTEND & USER EXPERIENCE</p><h3>Signal</h3><p>A minimal interface that makes complex information feel approachable.</p><ul class="tags" aria-label="Example technologies"><li>JavaScript</li><li>CSS</li><li>Accessibility</li></ul><details><summary>Project overview <span aria-hidden="true">↗</span></summary><p>Placeholder project. Explain who the interface serves, how you approached accessibility, and what you learned from building it.</p></details></div></article>
       </div>
     </section>
-    <section id="about" class="section wrap about" aria-labelledby="about-title"><div class="about-story"><div><p class="eyebrow">03 / A LITTLE CONTEXT</p><h2 id="about-title">Engineer by trade.<br>Curious by nature<span class="accent">.</span></h2></div><div class="about-copy"><p>I enjoy the space where thoughtful design meets dependable engineering. My approach is simple: understand the problem, build with intention, and keep improving.</p><p class="muted">This is a placeholder introduction. Add your area of expertise, what motivates you, and the kind of team you'd love to join.</p><p class="eyebrow skills-label">MY TOOLKIT <span class="muted">/ EXAMPLE SKILLS</span></p><ul class="tags skills"><li>JavaScript / TypeScript</li><li>React</li><li>Python</li><li>SQL</li><li>Git & CI/CD</li><li>Cloud infrastructure</li></ul></div></div><figure class="journey-map" aria-labelledby="journey-caption"><div class="map-heading"><span>ORIGIN / CURRENT BASE</span><span aria-hidden="true">+ &nbsp; +</span></div><img src="./assets/journey-map.svg?v=f9ea7984282e" width="456" height="340" loading="lazy" decoding="async" alt="A geometric map with two pins connected from Syria to Germany."><figcaption id="journey-caption"><div><span class="map-meta">ORIGINALLY FROM</span><strong>Syria</strong></div><span class="map-direction" aria-hidden="true">&#8594;</span><div><span class="map-meta">BASED IN</span><strong>Germany</strong></div></figcaption></figure></section>
+    <section id="about" class="section wrap about" aria-labelledby="about-title"><div class="about-story"><div><p class="eyebrow">03 / A LITTLE CONTEXT</p><h2 id="about-title">The Person behind the system<span class="accent">.</span></h2></div><div class="about-copy"><p>I'm a mechatronic engineer, curious about the hardware and code that make things work.</p><p class="muted">My experience spans production machinery, medical equipment, and software test automation, connecting hands-on engineering with software development.</p><p class="muted">I enjoy investigating unexpected behavior, simplifying repetitive tasks, and sharing what I learn. Always looking for something new to understand, learn, and build.</p><p class="eyebrow skills-label">MY TOOLKIT</p><ul class="tags skills"><li>Test Automation</li><li>Python</li><li>EXAM (MicroNova)</li><li>HIL / SIL Testing</li><li>Azure DevOps</li><li>C / C++</li><li>Git</li><li>GoogleTest (GTest)</li><li>Squish for Qt</li><li>CANoe / CANape</li><li>dSPACE Tooling</li><li>ASAM XIL API</li><li>Code Tracing &amp; Coverage</li><li>Linux</li><li>QNX</li><li>Docker</li><li>REST APIs</li><li>SQL</li><li>Databases</li><li>Polarion</li><li>AUTOSAR</li><li>MATLAB / Simulink</li><li>Raspberry Pi</li><li>Arduino</li></ul></div></div><figure class="journey-map" aria-label="Current base"><div class="map-heading"><span>CURRENT BASE</span><span aria-hidden="true">+ &nbsp; +</span></div><img src="./assets/journey-map.svg?v=3b374af120b6" width="456" height="340" loading="lazy" decoding="async" alt="A geometric map of central Europe with a pin marking Germany, where I am based."></figure></section>
     <section id="resume" class="section wrap" aria-labelledby="resume-title"><div class="section-heading"><div><p class="eyebrow">04 / THE FULL PICTURE</p><h2 id="resume-title">Résumé & education<span class="accent">.</span></h2></div><button class="button secondary" id="print-cv" hidden>Save résumé as PDF <span aria-hidden="true">↗</span></button></div><p class="resume-note">Save a printable overview of my profile, skills, experience, and education. Employer details, dates, and qualification details are still to be added.</p><div class="timeline"><article><span class="timeline-date">DATES TO ADD</span><div><h3>Mechatronic Engineering</h3><p class="company">University name <span>/ Example qualification</span></p><p>Add your degree and relevant focus areas. Keep details concise and professionally relevant.</p></div><span class="timeline-type">EDUCATION</span></article></div></section>
     <section id="contact" class="contact wrap" aria-labelledby="contact-title">
       <p class="eyebrow">05 / MAKE A CONNECTION</p>

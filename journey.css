@@ -50,7 +50,6 @@
 body{position:relative;isolation:isolate}
 .ambient-field{position:absolute;inset:0;z-index:-1;pointer-events:none;user-select:none;overflow:hidden;background:transparent}
 .ambient-code{position:absolute;margin:0;font:11px/2 var(--mono);letter-spacing:.5px;color:#d4e2e2;opacity:.10}
-.ambient-code-left{left:1.3%;top:24%;transform:rotate(-90deg);transform-origin:0 0}
 .ambient-code-right{right:1.1%;bottom:13%;writing-mode:vertical-rl;font-size:10px}
 .ambient-symbol{position:absolute;font:40px var(--mono);color:#ccd9d9;opacity:.08}
 .ambient-symbol-left{left:1.2%;top:43%;transform:rotate(-12deg)}
@@ -179,3 +178,48 @@ body{position:relative;isolation:isolate}
 @media print{.site-header{display:block;min-height:0;padding:0 0 16px}.site-header::after,.site-header .header-nav{display:none!important}}
 
 @media screen and (max-width:480px){.hero-actions .button{gap:14px;padding-inline:14px;max-width:100%}.hero-actions .text-link{overflow-wrap:anywhere}}
+
+/* Quiet job illustrations beneath the experience dates. */
+.experience-date-panel{min-width:0}
+.experience-date-panel .timeline-date{display:block;line-height:1.6}
+.job-animation{display:block;width:170px;max-width:100%;height:auto;margin-top:18px;color:#b8b8b8;opacity:.58;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.job-faint{opacity:.35}
+@media(prefers-reduced-motion:no-preference){
+  .job-bottles{animation:job-convey 2.8s linear infinite}
+  .job-laser{transform-origin:142px 45px;animation:job-scan 3.6s ease-in-out infinite}
+  .job-signal{animation:job-monitor 3.6s ease-in-out infinite}
+  .job-animation:not(.is-running) *{animation-play-state:paused}
+}
+@keyframes job-convey{to{transform:translateX(36px)}}
+@keyframes job-scan{0%,100%{transform:rotate(-9deg);opacity:.5}50%{transform:rotate(9deg);opacity:1}}
+@keyframes job-monitor{0%,100%{opacity:.45}50%{opacity:1}}
+@media(max-width:720px){#experience .job-animation{width:120px;margin-top:8px}}
+@media print{.job-animation{display:none}}
+
+.experience-tasks{max-width:620px;margin:18px 0 0;padding-left:18px;color:var(--muted)}
+.experience-tasks li{padding-left:4px;margin-bottom:10px}
+.experience-tasks li:last-child{margin-bottom:0}
+.experience-tasks li::marker{color:#777}
+
+.job-terminal text{fill:currentColor;stroke:none;font:10px var(--mono);letter-spacing:-.25px}
+.job-dialysis{width:170px}
+.job-fluid{stroke:#eee;stroke-dasharray:3 15;stroke-width:1.7}
+@media(prefers-reduced-motion:no-preference){
+  .job-code{animation:job-code-run 6s ease-in-out infinite}
+  .job-check-first{animation:job-check-one 6s steps(1,end) infinite}
+  .job-check-second{animation:job-check-two 6s steps(1,end) infinite}
+  .job-pump{animation:job-pump-turn 4s linear infinite}
+  .job-fluid{animation:job-fluid-flow 2.4s linear infinite}
+}
+@keyframes job-code-run{0%,100%{opacity:.25}12%,85%{opacity:1}}
+@keyframes job-check-one{0%,95%{opacity:0}30%{opacity:1}}
+@keyframes job-check-two{0%,95%{opacity:0}55%{opacity:1}}
+@keyframes job-pump-turn{to{transform:rotate(360deg)}}
+@keyframes job-fluid-flow{to{stroke-dashoffset:-36}}
+
+/* Experience labels echo the surname highlight. */
+#experience .timeline-type{align-self:start;justify-self:end;background:#f2f2f2;color:#0c0c0c;padding:3px 6px;line-height:1.4;font-weight:700;white-space:nowrap}
+
+#about .skills-label{display:table;background:#f2f2f2;color:#0c0c0c;padding:3px 6px;font-weight:700}
+
+#about .journey-map{align-self:start}

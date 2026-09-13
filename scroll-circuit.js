@@ -140,13 +140,14 @@
     const rect = main.getBoundingClientRect();
     mainTop = rect.top + window.scrollY;
     const bounds = sections.map(section => section.getBoundingClientRect());
-    // CSS reserves 48px for the circuit plus 12px to the viewport on each side.
-    // Anchor every component to these rails; no independent supply offset or breakpoint.
-    const contentLeft = Math.min(...bounds.map(bound => bound.left - rect.left));
-    const contentRight = Math.max(...bounds.map(bound => bound.right - rect.left));
-    const clearance = 48;
-    const left = contentLeft - clearance;
-    const right = contentRight + clearance;
+    // Move inward by about 1 CSS cm (38px), while retaining safe content clearance.
+    const outerSpace = Math.min(
+      ...bounds.map(bound => bound.left - rect.left),
+      ...bounds.map(bound => rect.width - (bound.right - rect.left))
+    );
+    const inset = Math.max(12, Math.min(50, outerSpace - 48));
+    const left = inset;
+    const right = rect.width - inset;
     const corner = 12;
     let side = left;
     const startY = 136;

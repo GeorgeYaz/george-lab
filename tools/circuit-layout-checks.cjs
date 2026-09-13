@@ -1,4 +1,4 @@
-// Geometry regression: the electrical rail follows the content, not the viewport edges.
+// Geometry regression: the full-width circuit stays near both viewport edges.
 const fs = require('fs'), vm = require('vm'), assert = require('assert');
 const path = require('path');
 const source = fs.readFileSync(path.join(__dirname, '..', 'scroll-circuit.js'), 'utf8');
@@ -15,8 +15,8 @@ for (const width of [240, 280, 320, 390, 720, 768, 900, 1024, 1440, 1536, 1544, 
   vm.runInNewContext(measure+'\nmeasure();',ctx);
   const left=ctx.points[0].x, right=Math.max(...ctx.points.map(p=>p.x));
   assert(left < margin && right > width-margin);
-  assert.equal(margin - left, 48, 'Fixed left section-to-rail spacing');
-  assert.equal(right - (width-margin), 48, 'Fixed right section-to-rail spacing');
+  assert.equal(left, Math.max(12, Math.min(50, margin - 48)), 'Inward inset respects content clearance');
+  assert.equal(right, width - left, 'Both rails move inward equally');
   assert(left >= 12 && right <= width-12, 'Viewport clearance is reserved');
   assert.equal(ctx.points[0].y, 136);
   const transform = ctx.supply.attributes.transform.match(/translate\(([^ ]+) ([^)]+)\) scale\(([^)]+)\)/);
@@ -29,6 +29,6 @@ for (const width of [240, 280, 320, 390, 720, 768, 900, 1024, 1440, 1536, 1544, 
   assert(ctx.points.every(p=>p.x>=0 && p.x<=width));
   assert(ctx.points.every((p,i)=>!i || p.at>ctx.points[i-1].at));
   assert(ctx.mainSwitch.at+30 < ctx.endpoint.at);
-  if(width===1862) console.log(`At screenshot width: rails ${left}px / ${right}px, 48px outside the content.`);
+  if(width===1862) console.log(`At screenshot width: rails ${left}px / ${right}px, 50px from the viewport edges.`);
 }
 console.log('Passed rail clearance, bounds, ordered progress, and switch placement at thirteen viewport widths.');

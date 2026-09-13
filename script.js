@@ -56,3 +56,27 @@ document.getElementById('year').textContent = String(new Date().getFullYear());
   motion.addEventListener('change', () => { if (motion.matches) clear(); });
   sync();
 })();
+
+// Run decorative experience animations only while visible.
+(() => {
+  const illustrations = document.querySelectorAll('.job-animation');
+  if (!illustrations.length) return;
+  const visible = new Set();
+  const sync = () => illustrations.forEach(item => {
+    item.classList.toggle('is-running', visible.has(item) && !document.hidden);
+  });
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) visible.add(entry.target);
+        else visible.delete(entry.target);
+      });
+      sync();
+    });
+    illustrations.forEach(item => observer.observe(item));
+  } else {
+    illustrations.forEach(item => visible.add(item));
+    sync();
+  }
+  document.addEventListener('visibilitychange', sync);
+})();
