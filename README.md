@@ -1,47 +1,31 @@
-# </> George Yazijy
+# </> george-lab
 
 > Engineer by trade. Curious by nature.
 
-Personal portfolio of a mechatronic engineer and Expert Test Automation Engineer. A look at my experience, projects, and the person behind the systems I build and test.
+The personal portfolio of **George Yazijy**: my engineering experience, technical toolkit, projects, and the person behind the systems I build and test.
 
-A dark, geometric design with an animated terminal introduction, subtle electrical illustrations, and a Germany location map. Built with HTML, CSS, and vanilla JavaScript for GitHub Pages, with no build step or package dependencies.
+## About me
 
-## Run locally
+I'm a mechatronic engineer based in Germany, working as an **Expert Test Automation Engineer at Fresenius Medical Care**. My experience spans production machinery, medical equipment, and software test automation, connecting hands-on engineering with software development.
 
-```sh
-python dev_server.py
-```
+I enjoy investigating unexpected behavior, simplifying repetitive tasks, and sharing what I learn. Always looking for something new to understand, learn, and build.
 
-Open [localhost:4173](http://localhost:4173). The preview disables caching so edits appear on reload.
+## My focus
 
-## GitHub Pages
+- Test automation with Python, EXAM, GoogleTest, and Squish for Qt.
+- HIL and SIL test environments that connect software with hardware.
+- Reliable testing workflows with Azure DevOps, Git, and custom test libraries.
+- Embedded systems, C/C++, Linux, and QNX.
 
-Push the repository to GitHub, then open **Settings > Pages** and select **Deploy from a branch > main > / (root)**. Relative asset paths support both user and project sites; `.nojekyll` disables Jekyll processing.
+## About the portfolio
 
-## Edit and check
+A dark, geometric website inspired by code, circuits, and the relationship between curiosity and engineering. It brings together professional experience, projects, an introduction, and space for a resume and contact information. Some project, education, and contact content is still being completed.
 
-Content lives in `index.html`; styling lives in `styles.css` and `journey.css`. Projects, education, and contact details still include placeholders. The current resume action uses the browser's Save as PDF option.
+The design includes a terminal-style introduction, an atom-to-knowledge-graph animation, a scrolling electrical circuit, and small illustrations reflecting each role.
 
-After changing assets, refresh their versioned URLs and run the checks:
+Built with **HTML, CSS, and vanilla JavaScript** for GitHub Pages. Responsive layouts, reduced-motion support, lazy-loaded imagery, and locally hosted assets keep the experience focused. No analytics or third-party scripts.
 
-```sh
-python tools/version_assets.py
-python tools/check_pages.py
-node tools/review-checks.cjs
-node tools/circuit-layout-checks.cjs
-```
-
-## Built with care
-
-- Local assets and system fonts; no analytics or third-party scripts.
-- Lazy-loaded portrait, responsive layouts, and reduced-motion support.
-- A restrictive HTML Content Security Policy; all published files are public.
-
-## Artwork
-
-The Germany map uses simplified [Natural Earth country outlines](https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_admin_0_countries.geojson), which are public domain. The dialysis illustration is inspired by the [Fresenius 6008 CAREsystem](https://freseniusmedicalcare.com/en/healthcare-professionals/hemodialysis/machines/6008-caresystem/).
-
-Electrical artwork is conceptual, not a construction schematic. References: [STMicroelectronics power supply design](https://wiki.st.com/stm32mcu/wiki/Basics_of_power_supply_design_for_MCU) and [SparkFun LED circuit guide](https://learn.sparkfun.com/tutorials/experiment-guide-for-the-johnny-five-inventors-kit/experiment-1-blink-an-led).
+Artwork sources are documented in [CREDITS.md](CREDITS.md).
 
 ## Rights
 

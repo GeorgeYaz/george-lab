@@ -30,7 +30,7 @@ cover the photo or personal content above.
 
 Third-party material retains its own terms and ownership. In particular, the
 Natural Earth country-outline data is public domain; this notice does not
-restrict its reuse. See the README artwork credits for sources.
+restrict its reuse. See CREDITS.md for artwork sources.
 
 Nothing in this notice overrides applicable legal exceptions or rights granted
 under GitHub's Terms of Service, including permitted platform viewing and forking.
