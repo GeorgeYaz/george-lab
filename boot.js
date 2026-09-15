@@ -8,7 +8,7 @@
     if (running) return;
     running = true;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const surfaces = Array.from(document.querySelectorAll('header, main, footer, .skip-link'));
+    const surfaces = Array.from(document.querySelectorAll('header, main, footer, .skip-link, .section-dock'));
     const output = document.getElementById('boot-output');
     const statusMessage = document.getElementById('boot-status');
     const lines = [

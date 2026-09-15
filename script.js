@@ -80,3 +80,56 @@ document.getElementById('year').textContent = String(new Date().getFullYear());
   }
   document.addEventListener('visibilitychange', sync);
 })();
+
+// Show the return link once the reader has moved down the page.
+(() => {
+  const link = document.querySelector('.back-to-top');
+  if (!link) return;
+  document.documentElement.classList.add('back-top-ready');
+  const sync = () => link.classList.toggle('is-visible', window.scrollY > 400);
+  window.addEventListener('scroll', sync, { passive: true });
+  window.addEventListener('pageshow', sync);
+  sync();
+})();
+
+// Track the section at the reading position without changing the URL on scroll.
+(() => {
+  const dock = document.querySelector('.section-dock');
+  if (!dock) return;
+  const entries = Array.from(dock.querySelectorAll('a[href^="#"]')).map(link => ({
+    link, section: document.getElementById(link.getAttribute('href').slice(1))
+  })).filter(entry => entry.section);
+  let pending = false;
+  let current = null;
+  function update() {
+    pending = false;
+    const readingLine = window.innerHeight * .33;
+    let active = null;
+    entries.forEach(entry => {
+      if (entry.section.getBoundingClientRect().top <= readingLine) active = entry;
+    });
+    if (window.scrollY > 0 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) active = entries[entries.length - 1];
+    if (active === current) return;
+    current = active;
+    entries.forEach(entry => {
+      if (entry === active) entry.link.setAttribute('aria-current', 'location');
+      else entry.link.removeAttribute('aria-current');
+    });
+    if (active) {
+      const linkBox = active.link.getBoundingClientRect();
+      const dockBox = dock.getBoundingClientRect();
+      if (linkBox.left < dockBox.left || linkBox.right > dockBox.right) {
+        dock.scrollLeft += linkBox.left - dockBox.left - (dock.clientWidth - linkBox.width) / 2;
+      }
+    }
+  }
+  function schedule() {
+    if (!pending) { pending = true; requestAnimationFrame(update); }
+  }
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', schedule, { passive: true });
+  window.addEventListener('pageshow', schedule);
+  document.addEventListener('portfolio:boot-end', schedule);
+  if ('ResizeObserver' in window) new ResizeObserver(schedule).observe(document.getElementById('main'));
+  schedule();
+})();

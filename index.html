@@ -25,13 +25,13 @@
   <title>George Yazijy — Mechatronic Engineer</title>
   <link rel="icon" href="./favicon.svg?v=d92305c2f2a1" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css?v=a447a1a57124">
-  <link rel="stylesheet" href="./journey.css?v=fb609e21aa29">
-  <script src="./boot.js?v=64962956e5fa" defer></script>
-  <script src="./script.js?v=dfec57d75eef" defer></script>
+  <link rel="stylesheet" href="./journey.css?v=e215be382c78">
+  <script src="./boot.js?v=9afbe9a3cdce" defer></script>
+  <script src="./script.js?v=a12ef84a69ed" defer></script>
   <script src="./curiosity.js?v=66aa18219f2e" defer></script>
   <script src="./scroll-circuit.js?v=944c566878e3" defer></script>
 </head>
-<body>
+<body id="top">
   <p id="boot-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
   <div id="boot-screen" class="boot-screen" role="dialog" aria-modal="true" aria-label="Starting George Yazijy's portfolio" aria-describedby="boot-status" tabindex="-1" hidden>
     <div class="boot-background" aria-hidden="true">
@@ -70,14 +70,15 @@ P = V · I
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header wrap">
     <a class="identity" href="#intro" aria-label="George Yazijy, home"><span class="identity-code" aria-hidden="true"><span class="identity-code-text"><span class="identity-code-letter">&lt;</span><span class="identity-code-letter identity-slash">/</span><span class="identity-code-letter">&gt;</span></span></span><span class="identity-name" aria-hidden="true"><span class="identity-first"><span class="identity-letter">G</span><span class="identity-letter">E</span><span class="identity-letter">O</span><span class="identity-letter">R</span><span class="identity-letter">G</span><span class="identity-letter">E</span></span><span class="identity-last"><span class="identity-letter">Y</span><span class="identity-letter">A</span><span class="identity-letter">Z</span><span class="identity-letter">I</span><span class="identity-letter">J</span><span class="identity-letter">Y</span><span class="identity-letter identity-period">.</span></span></span></a>
-    <nav class="header-nav" aria-label="Main navigation">
+
+  </header>
+    <nav class="section-dock" aria-label="Main navigation">
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#about">About</a>
       <a href="#resume">R&eacute;sum&eacute;</a>
-      <a class="header-contact" href="#contact">Let's connect</a>
+      <a class="dock-contact" href="#contact">Connect</a>
     </nav>
-  </header>
   <main id="main" tabindex="-1" aria-label="Portfolio chapters">
     <svg id="scroll-circuit" aria-hidden="true" focusable="false" hidden>
       <path id="circuit-track" class="circuit-track"/>
@@ -171,6 +172,7 @@ P = V · I
       </div>
     </section>
   </main>
-  <footer class="wrap"><span>&copy; <span id="year">2026</span> George Yazijy. All rights reserved.</span><a class="footer-rights" href="./LICENSE.md">Photo &amp; content rights</a><a href="#intro">Back to intro</a></footer>
+  <footer class="wrap"><span>&copy; <span id="year">2026</span> George Yazijy. All rights reserved.</span><a class="footer-rights" href="./LICENSE.md">Photo &amp; content rights</a></footer>
+  <a class="back-to-top" href="#top" aria-label="Back to top"><span aria-hidden="true">^</span></a>
 </body>
 </html>
