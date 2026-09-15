@@ -3,13 +3,12 @@
 (() => {
   const boot = document.getElementById('boot-screen');
   if (!boot) return;
-  const replay = document.getElementById('replay-boot');
   let running = false;
-  function startBoot({ preview = false } = {}) {
+  function startBoot() {
     if (running) return;
     running = true;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const surfaces = Array.from(document.querySelectorAll('header, main, footer, .skip-link, #replay-boot'));
+    const surfaces = Array.from(document.querySelectorAll('header, main, footer, .skip-link'));
     const output = document.getElementById('boot-output');
     const statusMessage = document.getElementById('boot-status');
     const lines = [
@@ -71,9 +70,9 @@
       timers.forEach(clearTimeout);
       clearTimeout(deadline);
       document.removeEventListener('keydown', onKey);
-      // Respect shared section links; an explicit preview still returns to the intro.
+      // Respect shared section links.
       let target = document.getElementById('intro');
-      if (!preview && window.location.hash) {
+      if (window.location.hash) {
         try {
           const requested = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
           const main = document.getElementById('main');
@@ -134,11 +133,6 @@
       });
     }
     deadline = setTimeout(finish, 3200);
-  }
-  // Temporary preview control works even after the automatic intro has been seen.
-  if (replay) {
-    replay.hidden = false;
-    replay.addEventListener('click', () => startBoot({ preview: true }));
   }
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   try {

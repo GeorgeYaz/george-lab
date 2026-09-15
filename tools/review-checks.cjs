@@ -24,10 +24,10 @@ function setup({ hash = '', seen = false, reduced = false, storageFails = false 
       getBoundingClientRect: () => ({ top: (id === 'projects' ? 1400 : 0) - win.scrollY })
     };
   }
-  ['boot-screen','boot-output','boot-status','replay-boot','main','intro','hero-title','projects','projects-title'].forEach(id => ids[id] = element(id));
+  ['boot-screen','boot-output','boot-status','main','intro','hero-title','projects','projects-title'].forEach(id => ids[id] = element(id));
   ids['curiosity-canvas'] = { getContext: () => ({}) };
   const doc = { documentElement: element(), getElementById: id => ids[id],
-    querySelectorAll: s => s.startsWith('a[') ? [] : [ids.main, ids['replay-boot']],
+    querySelectorAll: s => s.startsWith('a[') ? [] : [ids.main],
     createElement: () => element(), createTextNode: text => ({ textContent: text }),
     addEventListener: (k,f) => events.set(k,f), removeEventListener: k => events.delete(k),
     dispatchEvent: e => { if (events.has(e.type)) events.get(e.type)(e); }
@@ -62,15 +62,13 @@ normal.advance(3380);
 assert.equal(normal.win.scrollY, 0); assert.equal(normal.ids.main.inert, false);
 assert.equal(normal.doc.activeElement.id, 'hero-title'); assert.equal(normal.ids['boot-status'].textContent, 'Portfolio ready.');
 assert.equal(normal.timers.size, 0); assert(normal.callbacks() < 25);
-normal.ids['replay-boot'].fire('click'); normal.advance(6760); assert.equal(normal.ids['boot-screen'].hidden, true);
 const linked = setup({ hash: '#projects' }); linked.advance(3380);
 assert.equal(linked.win.scrollY, 1368); assert.equal(linked.doc.activeElement.id, 'projects-title');
-linked.ids['replay-boot'].fire('click'); linked.advance(6760); assert.equal(linked.win.scrollY, 0);
 for(const hash of ['#missing', '#%ZZ']) { const t=setup({hash}); t.advance(3380); assert.equal(t.win.scrollY,0); }
 const escaped=setup(); escaped.doc.dispatchEvent({type:'keydown',key:'Escape'}); escaped.advance(180);
 assert.equal(escaped.ids.main.inert,false); assert.equal(escaped.timers.size,0);
 for(const options of [{seen:true},{storageFails:true},{reduced:true}]) {
-  const t=setup(options); assert.equal(t.ids['boot-screen'].hidden,true); assert.equal(t.ids['replay-boot'].hidden,false);
+  const t=setup(options); assert.equal(t.ids['boot-screen'].hidden,true);
   if(!options.reduced) assert(t.doc.documentElement.classList.contains('intro-arriving'));
 }
 // Use a no-op canvas to verify that boot visibility gates animation scheduling.
@@ -85,4 +83,4 @@ vm.runInNewContext(fs.readFileSync(path.join(root,'curiosity.js'),'utf8'),{
 assert.equal(frames.size,0); booting=false; listeners['portfolio:boot-end'](); assert.equal(frames.size,1);
 booting=true; listeners['portfolio:boot-start'](); assert.equal(frames.size,0);
 booting=false; listeners['portfolio:boot-end'](); assert.equal(frames.size,1);
-console.log('Passed: typed/execution output, idle scheduler, deep links, replay, Escape, focus/status, fallback modes, and canvas pause/resume.');
+console.log('Passed: typed/execution output, idle scheduler, deep links, Escape, focus/status, fallback modes, and canvas pause/resume.');

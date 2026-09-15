@@ -42,11 +42,8 @@
 .boot-fail{color:#dc8080}
 .boot-route{color:#bebebe}
 #boot-output .boot-line:last-child::after{content:'';display:inline-block;width:.55em;height:1em;margin-left:.5em;background:#87c879;vertical-align:-.12em}
-.boot-replay{position:fixed;right:20px;bottom:20px;z-index:50;border:1px solid #444;background:#141414;color:#eee;padding:10px 14px;font:12px var(--mono);cursor:pointer}
-.boot-replay span{color:#888}
-.boot-replay:hover{border-color:#888}
-@media(max-width:480px){.boot-heading{font-size:12px}#boot-output{font-size:12px;height:126px}.boot-replay{right:12px;bottom:12px}}
-@media print{.boot-screen,.boot-replay{display:none!important}}
+@media(max-width:480px){.boot-heading{font-size:12px}#boot-output{font-size:12px;height:126px}}
+@media print{.boot-screen{display:none!important}}
 body{position:relative;isolation:isolate}
 .ambient-field{position:absolute;inset:0;z-index:-1;pointer-events:none;user-select:none;overflow:hidden;background:transparent}
 .ambient-code{position:absolute;margin:0;font:11px/2 var(--mono);letter-spacing:.5px;color:#d4e2e2;opacity:.10}
