@@ -50,7 +50,10 @@ def main():
                 assert part in {p.name for p in current.iterdir()}, f'Case-sensitive path missing: {ref}'
                 current /= part
             assert current.is_file(), f'Missing asset: {ref}'
-            assert parsed.query == 'v=' + sha256(current.read_bytes()).hexdigest()[:12], f'Stale asset version: {ref}'
+            if current.suffix == '.md':
+                assert not parsed.query, f'Unexpected document query: {ref}'
+            else:
+                assert parsed.query == 'v=' + sha256(current.read_bytes()).hexdigest()[:12], f'Stale asset version: {ref}'
             assets.append((ref, current, relative))
         else:
             assert urlsplit(ref).scheme in {'https', 'mailto'}, f'Nonportable URL: {ref}'
