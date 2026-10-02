@@ -267,3 +267,29 @@ footer.wrap{flex-wrap:wrap;gap:12px 24px}
 }
 @media screen and (max-width:320px){.site-header.wrap{width:calc(100% - 32px)}.site-header .identity{gap:8px}.site-header .identity-name{font-size:clamp(13px,5.2vw,17px);gap:5px}.site-header .identity-code{font-size:20px}}
 @media print{.header-trace{display:none}}
+
+/* Intro action: understated instrument-panel styling with a single hover sweep. */
+.hero-actions .project-cta{position:relative;isolation:isolate;overflow:hidden;min-height:54px;padding:9px 10px 9px 20px;gap:28px;border:1px solid #ffffff30;border-radius:12px;background:linear-gradient(135deg,#202020,#111);color:#f2f2f2;font-weight:500;box-shadow:inset 0 1px 0 #ffffff0a;transition:border-color .25s,box-shadow .25s,transform .25s}
+.project-cta-label{position:relative;z-index:1}
+.hero-actions .project-cta .project-cta-icon{display:grid;place-items:center;flex-shrink:0;width:34px;height:34px;border-radius:8px;background:#ffffff08;border:1px solid #ffffff16;color:#04d9ff;font-size:19px;transition:transform .25s,background-color .25s,border-color .25s}
+.hero-actions .project-cta::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 25%,#04d9ff10 50%,transparent 75%);transform:translateX(-110%);pointer-events:none}
+.hero-actions .project-cta::after{content:'';position:absolute;left:20px;right:20px;bottom:0;height:1px;background:linear-gradient(90deg,transparent,#04d9ff99,transparent);transform:scaleX(.25);opacity:.5;transition:transform .35s,opacity .35s}
+.hero-actions .project-cta:focus-visible{outline:2px solid #04d9ff;outline-offset:4px;border-color:#04d9ff80}
+.hero-actions .project-cta:focus-visible::after{transform:scaleX(1);opacity:1}
+@media(hover:hover) and (pointer:fine){
+  .hero-actions .project-cta:hover{background:linear-gradient(135deg,#242424,#141414);border-color:#04d9ff70;box-shadow:inset 0 1px 0 #ffffff10,0 6px 20px #0003;transform:translateY(-2px)}
+  .hero-actions .project-cta:hover .project-cta-icon{background:#04d9ff10;border-color:#04d9ff40}
+  .hero-actions .project-cta:hover::after{transform:scaleX(1);opacity:1}
+  .hero-actions .project-cta:hover::before{animation:project-cta-sweep .7s ease-out both}
+}
+.hero-actions .project-cta:active{transform:translateY(0) scale(.98)}
+@keyframes project-cta-sweep{to{transform:translateX(110%)}}
+@media(max-width:480px){.hero-actions .project-cta{padding:8px 8px 8px 14px;gap:18px;min-height:50px}}
+@media(prefers-reduced-motion:reduce){.hero-actions .project-cta,.hero-actions .project-cta .project-cta-icon,.hero-actions .project-cta::after{transition:none}.hero-actions .project-cta:hover::before{animation:none}.hero-actions .project-cta:hover,.hero-actions .project-cta:active,.hero-actions .project-cta:hover .project-cta-icon{transform:none}}
+
+.project-cta-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.2}
+.project-cta-icon rect{transition:fill .25s}
+@media(hover:hover) and (pointer:fine){.project-cta:hover .project-cta-icon rect{fill:#04d9ff20}}
+
+/* Both intro actions share the same panel, accent, and hover treatment. */
+@media(hover:hover) and (pointer:fine){.resume-cta:hover .project-cta-icon svg{fill:#04d9ff20}}
