@@ -10,7 +10,7 @@ document.getElementById('year').textContent = String(new Date().getFullYear());
 // Scramble decorative glyphs without changing the name's layout or accessible label.
 (() => {
   const root = document.documentElement;
-  const letters = Array.from(document.querySelectorAll('.identity-name .identity-letter:not(.identity-period)'));
+  const letters = Array.from(document.querySelectorAll('.identity-name .identity-letter'));
   if (!letters.length) return;
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const symbols = '01<>[]{}#%&*+=?/';

@@ -129,20 +129,15 @@ body{position:relative;isolation:isolate}
 .identity-code{position:relative;display:block;flex-shrink:0;width:3.5ch;margin-top:1px;font:32px/1.1 var(--mono);color:var(--text)}
 .identity-code-text{display:block;width:3ch}
 .identity-slash{color:#df6262}
-.identity-last>.identity-period{position:relative}
-.identity-last>.identity-period::after{content:'';position:absolute;left:calc(100% + 10px);top:.1em;width:1px;height:.85em;background:var(--text);opacity:0}
 @media screen and (prefers-reduced-motion:no-preference){
   .intro-arriving .identity-code-letter{animation:identity-letter-type .18s ease-out calc(.2s + var(--letter-index)*.22s) backwards}
-  .intro-arriving .identity-last>.identity-period::after{animation:identity-cursor 1.2s ease-in-out 2.35s 2 forwards}
   .intro-arriving .identity-letter{animation:identity-letter-type .12s ease-out calc(var(--name-start) + var(--letter-index)*.075s) backwards}
   .intro-arriving .identity-last{animation:identity-highlight .12s ease-out 1.4s backwards}
 }
-@keyframes identity-cursor{0%,65%,100%{opacity:0}15%,40%{opacity:.65}}
 
-/* Keep both lines at their full width while individual letters appear. */
+/* Reserve the full name width while individual letters appear. */
 .identity-name>.identity-first{margin-left:0;--name-start:.86s}
 .identity-name>.identity-last{--name-start:1.4s;width:fit-content;margin-top:3px;padding:0 5px 1px;background:#f2f2f2;color:#0c0c0c}
-.identity-last>.identity-period{color:inherit}
 .identity-last .identity-letter.is-scrambling::before{color:#555}
 @keyframes identity-highlight{from{background-color:transparent}to{background-color:#f2f2f2}}
 .identity-code-letter:nth-child(1),.identity-letter:nth-child(1){--letter-index:0}
@@ -247,3 +242,28 @@ footer.wrap{flex-wrap:wrap;gap:12px 24px}
 @media(max-width:359px){.section-dock a,.section-dock a:last-child{font-size:10px;padding:0 7px}}
 @media(prefers-reduced-motion:reduce){.section-dock a{transition:none}}
 @media print{.section-dock{display:none!important}}
+
+/* Single-line signature with a quiet, chamfered circuit divider. */
+@media screen{
+  .site-header{justify-content:flex-start;padding:32px 0 44px}
+  .site-header::after{display:none}
+  .site-header .identity{gap:22px;max-width:100%}
+  .site-header .identity-code{font-size:38px;width:3ch;flex-shrink:0}
+  .site-header .identity-name{display:flex;align-items:center;gap:10px;font-size:34px;line-height:1.08;white-space:nowrap;letter-spacing:-1px}
+  .site-header .identity-name>span{display:block;margin:0}
+  .site-header .identity-name>.identity-last{padding:1px 6px 2px}
+}
+.header-trace{position:absolute;left:0;bottom:0;width:100%;height:26px;overflow:visible;pointer-events:none;fill:none}
+.header-trace path{vector-effect:non-scaling-stroke;stroke-width:1}
+.header-trace-main{stroke:url(#header-trace-fade)}
+.header-trace-echo{stroke:#04d9ff;opacity:.14}
+.header-trace-terminal{stroke:#04d9ff;opacity:.45}
+@media screen and (max-width:600px){
+  .site-header.wrap{width:calc(100% - 48px);padding:28px 0 38px}
+  .site-header .identity{gap:12px}
+  .site-header .identity-code{font-size:clamp(22px,6vw,32px)}
+  .site-header .identity-name{font-size:clamp(17px,4.8vw,28px);gap:7px;letter-spacing:-.5px}
+  .site-header .identity-name>.identity-last{padding-inline:4px}
+}
+@media screen and (max-width:320px){.site-header.wrap{width:calc(100% - 32px)}.site-header .identity{gap:8px}.site-header .identity-name{font-size:clamp(13px,5.2vw,17px);gap:5px}.site-header .identity-code{font-size:20px}}
+@media print{.header-trace{display:none}}
