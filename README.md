@@ -19,7 +19,7 @@ I enjoy investigating unexpected behavior, simplifying repetitive tasks, and sha
 
 ## About the portfolio
 
-A dark, geometric website inspired by code, circuits, and the relationship between curiosity and engineering. It brings together professional experience, projects, an introduction, and space for a resume and contact information. Some project, education, and contact content is still being completed.
+A dark, geometric website inspired by code, circuits, and the relationship between curiosity and engineering. It brings together professional experience, projects, an introduction, and space for a resume and contact information. Some project and contact content is still being completed.
 
 The design includes a terminal-style introduction, an atom-to-knowledge-graph animation, a scrolling electrical circuit, and small illustrations reflecting each role.
 

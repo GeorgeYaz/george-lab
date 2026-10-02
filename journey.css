@@ -293,3 +293,103 @@ footer.wrap{flex-wrap:wrap;gap:12px 24px}
 
 /* Both intro actions share the same panel, accent, and hover treatment. */
 @media(hover:hover) and (pointer:fine){.resume-cta:hover .project-cta-icon svg{fill:#04d9ff20}}
+
+/* Vertical project cards with an illustration-first reveal. */
+#projects .projects{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;position:relative;isolation:isolate}
+#projects .project{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.3fr);min-width:0;position:relative;transform-origin:top center;background:#111;border-radius:12px;overflow:hidden}
+#projects .project:nth-child(1){z-index:3}
+#projects .project:nth-child(2){z-index:2}
+#projects .project:nth-child(3){z-index:1}
+#projects .project-visual{height:auto;min-height:300px;border-bottom:0;border-right:1px solid var(--line)}
+#projects .project-content{padding:28px 30px 0;min-width:0}
+#projects .project-content>p:not(.eyebrow){min-height:0}
+#projects .project details{margin-top:auto}
+#projects .stack{top:70px;bottom:auto;height:160px}
+#projects .rings{top:76px;bottom:auto;height:140px}
+.quad-visual{display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,#202020,#111 72%)}
+.quadcopter{display:block;width:min(100%,340px);height:292px;margin:38px 12px;fill:none;stroke:#ababab;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.quad-guide{stroke:#777;opacity:.2;stroke-dasharray:3 7}
+.quad-arms{stroke:#8a8a8a;stroke-width:2}
+.quad-guard{stroke:#777;opacity:.45}
+.quad-motor{fill:#1a1a1a;stroke:#ccc}
+.quad-propeller{fill:#aaa;fill-opacity:.25;stroke:#aaa}
+.quad-body{fill:#191919;stroke:#c4c4c4}
+.quad-board{fill:#242424;stroke:#999}
+.quad-circuit{stroke:#aaa;stroke-width:1}
+.quad-camera{fill:#151515}
+.quad-lens,.quad-antenna{stroke:#04d9ff;opacity:.65}
+.quad-signal{stroke:#04d9ff;opacity:0;transform-box:fill-box;transform-origin:center}
+@media(prefers-reduced-motion:no-preference){
+ .quad-airframe{animation:quad-hover 5s ease-in-out infinite}
+ .quad-propeller{animation:quad-spin 1.8s linear infinite}
+ .quad-signal{animation:quad-transmit 3s ease-out infinite}
+ .quad-signal-second{animation-delay:1.5s}
+ .quadcopter:not(.is-running) *{animation-play-state:paused}
+}
+@keyframes quad-hover{0%,100%{transform:translateY(3px)}50%{transform:translateY(-3px)}}
+@keyframes quad-spin{to{transform:rotate(360deg)}}
+@keyframes quad-transmit{0%{transform:scale(.4);opacity:0}20%{opacity:.5}100%{transform:scale(2.2);opacity:0}}
+@media(max-width:720px){#projects .project{grid-template-columns:minmax(0,1fr)}#projects .project-visual{min-height:240px;border-right:0;border-bottom:1px solid var(--line)}#projects .project-content{padding:24px 20px 0}.quadcopter{height:230px;margin:32px 8px}#projects .stack{top:55px}#projects .rings{top:52px}}
+
+#projects .project{transition:border-color .25s,box-shadow .25s}
+#projects .project:focus-within{border-color:#04d9ff99;box-shadow:0 0 0 1px #04d9ff12}
+@media(hover:hover) and (pointer:fine){#projects .project:hover{border-color:#04d9ff99;box-shadow:0 0 0 1px #04d9ff12,0 8px 24px #0003}}
+@media(prefers-reduced-motion:no-preference){
+ #projects .project-reveal-ready{opacity:0}
+ #projects .project-reveal-ready .project-content{opacity:0;transform:translateX(-16px)}
+ #projects .project-reveal-ready.is-revealed{animation:project-figure-in .35s ease-out both}
+ #projects .project-reveal-ready.is-revealed .project-content{animation:project-copy-in .6s ease-out .5s both}
+}
+@keyframes project-figure-in{from{opacity:0}to{opacity:1}}
+
+@keyframes project-copy-in{to{opacity:1;transform:translateX(0)}}
+@media(max-width:720px) and (prefers-reduced-motion:no-preference){
+
+ #projects .project-reveal-ready .project-content{transform:translateY(-12px)}
+ #projects .project-reveal-ready.is-revealed .project-content{animation-name:project-copy-down}
+}
+@keyframes project-copy-down{to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){#projects .project{transition:none}.quad-signal{opacity:.2}}
+
+/* Equal square illustration panels and consistent project-card rows. */
+#projects .projects{grid-auto-rows:1fr}
+#projects .project{align-items:start}
+#projects .project-visual{width:100%;aspect-ratio:1;height:auto;min-height:0;align-self:start}
+#projects .quadcopter{position:absolute;inset:12% 8%;width:84%;height:76%;margin:0}
+#projects .stack{inset:50% auto auto 50%;width:160px;height:160px;transform:translate(-50%,-50%)}
+#projects .rings{inset:50% auto auto 50%;width:160px;height:130px;transform:translate(-50%,-50%)}
+@media(max-width:720px){#projects .project{align-content:start}#projects .project-visual{aspect-ratio:1;min-height:0}}
+
+/* Compact, equally sized project illustrations. */
+#projects .project{grid-template-columns:240px minmax(0,1fr)}
+#projects .project-content{padding:22px 26px 0}
+#projects .project-content>p:not(.eyebrow){margin-bottom:16px}
+#projects .project .tags{margin-bottom:16px}
+@media(max-width:900px) and (min-width:721px){#projects .project{grid-template-columns:200px minmax(0,1fr)}}
+@media(max-width:720px){
+ #projects .project{grid-template-columns:minmax(0,1fr)}
+ #projects .project-visual{width:min(100%,220px);justify-self:center}
+ #projects .project-content{padding:20px 20px 0}
+}
+
+/* All copy stays visible in the layout; no click-to-expand card sizing. */
+#projects .project-content{padding-bottom:22px;overflow-wrap:anywhere}
+#projects .project-build-note{border-top:1px solid var(--line);padding-top:15px;font-size:14px;color:var(--muted)}
+.smart-room{position:absolute;inset:12% 8%;width:84%;height:76%;fill:none;stroke:#a3a3a3;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.room-frame{stroke:#777;opacity:.65}
+.room-light{fill:#04d9ff;fill-opacity:.07;stroke:#04d9ff;stroke-opacity:.15}
+.room-data{stroke:#04d9ff;stroke-dasharray:3 7;opacity:.6}
+.room-chart{stroke:#04d9ff;opacity:.8;stroke-dasharray:50;stroke-dashoffset:0}
+.room-screen-detail{opacity:.45}
+@media(prefers-reduced-motion:no-preference){
+ .room-light{animation:room-light-breathe 4s ease-in-out infinite}
+ .room-data{animation:room-data-flow 3s linear infinite}
+ .room-data-two{animation-delay:1s}
+ .room-chart{animation:room-chart-draw 5s ease-in-out infinite}
+ .smart-room:not(.is-running) *{animation-play-state:paused}
+}
+@keyframes room-light-breathe{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes room-data-flow{to{stroke-dashoffset:-30}}
+@keyframes room-chart-draw{0%{stroke-dashoffset:50;opacity:.3}50%,85%{stroke-dashoffset:0;opacity:.8}100%{stroke-dashoffset:0;opacity:.3}}
+
+html.section-travelling{scroll-behavior:auto!important}

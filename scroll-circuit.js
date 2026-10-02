@@ -13,6 +13,8 @@
   let points = [];
   let mainTop = 0;
   let pending = false;
+  let easedPosition = null;
+  let lastFrame = 0;
   let layoutDirty = true;
   const namespace = 'http://www.w3.org/2000/svg';
   // Decorative schematic components sit in the whitespace below section dividers.
@@ -209,10 +211,19 @@
   }
   function render(now = performance.now()) {
     pending = false;
+    const resetPosition = layoutDirty;
     if (layoutDirty) measure();
     const pageBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
-    const position = pageBottom ? points[points.length - 1].at
+    const targetPosition = pageBottom ? points[points.length - 1].at
       : window.scrollY + window.innerHeight * .55 - mainTop;
+    // Time-based easing is consistent across 60/120Hz displays and stops at rest.
+    const dt = Math.min(32, Math.max(1, now - lastFrame || 16));
+    lastFrame = now;
+    if (resetPosition || easedPosition === null || motion.matches || document.hidden) easedPosition = targetPosition;
+    else easedPosition += (targetPosition - easedPosition) * (1 - Math.exp(-dt / 90));
+    const catchingUp = Math.abs(targetPosition - easedPosition) > .5;
+    if (!catchingUp) easedPosition = targetPosition;
+    const position = easedPosition;
     const visible = [points[0]];
     let end = points[0];
     for (let i = 1; i < points.length; i++) {
@@ -247,7 +258,7 @@
       branch.live.setAttribute('opacity', String(progress * progress * (3 - 2 * progress)));
     });
     const stillTyping = updateSectionLabels(position, now);
-    if (stillTyping) schedule();
+    if (stillTyping || (catchingUp && !document.hidden)) schedule();
     const mcuY = mainTop + branches[2].at - window.scrollY;
     mcuActive = position > branches[2].at && mcuY > -60 && mcuY < window.innerHeight;
     updateBinaryPlayback();
