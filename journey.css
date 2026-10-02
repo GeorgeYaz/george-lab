@@ -160,7 +160,7 @@ body{position:relative;isolation:isolate}
 @media print,(prefers-reduced-motion:reduce){.identity-letter.is-scrambling{color:inherit}.identity-letter.is-scrambling::before{display:none}}
 
 /* Animated signature on the left, with matching navigation aligned right. */
-.site-header{position:relative;display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px;min-height:0;padding:30px 0 26px;border:0}
+.site-header{position:relative;display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:center;gap:22px;min-height:0;padding:30px 0 26px;border:0}
 .site-header::after{content:'';position:absolute;right:0;bottom:0;width:100%;height:1px;background:linear-gradient(270deg,#04d9ff 0 24px,#333 24px 70%,transparent 100%)}
 .site-header .identity{align-items:center;gap:20px}
 .site-header .identity-code{margin-top:0}
