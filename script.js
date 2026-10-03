@@ -1,10 +1,40 @@
 'use strict';
-const printButton = document.getElementById('print-cv');
-if (printButton) {
-  printButton.hidden = false;
-  printButton.addEventListener('click', () => window.print());
-}
 document.getElementById('year').textContent = String(new Date().getFullYear());
+
+// Keep copying separate from opening the visitor's email application.
+(() => {
+  const button = document.getElementById('copy-email');
+  const link = document.querySelector('.contact-email-link');
+  const status = document.getElementById('copy-email-status');
+  if (!button || !link || !status) return;
+  const label = button.querySelector('span');
+  let resetTimer;
+  button.hidden = false;
+  button.addEventListener('click', async () => {
+    clearTimeout(resetTimer);
+    button.disabled = true;
+    status.textContent = '';
+    try {
+      await navigator.clipboard.writeText(link.getAttribute('href').slice('mailto:'.length));
+      label.textContent = 'Copied';
+      button.classList.add('is-copied');
+      status.textContent = 'Email address copied.';
+    } catch {
+      label.textContent = 'Retry';
+      button.title = 'Could not copy. Please select and copy the email address.';
+      button.classList.remove('is-copied');
+      status.textContent = 'Could not copy. Please select and copy the email address above.';
+    } finally {
+      button.disabled = false;
+      resetTimer = setTimeout(() => {
+        label.textContent = 'Copy';
+        button.removeAttribute('title');
+        button.classList.remove('is-copied');
+        status.textContent = '';
+      }, 5000);
+    }
+  });
+})();
 
 
 // Scramble decorative glyphs without changing the name's layout or accessible label.
@@ -100,7 +130,12 @@ document.getElementById('year').textContent = String(new Date().getFullYear());
     link, section: document.getElementById(link.getAttribute('href').slice(1))
   })).filter(entry => entry.section);
   let pending = false;
-  let current = null;
+  let destination = null;
+  const pill = document.createElement('span');
+  pill.className = 'section-dock-pill';
+  pill.setAttribute('aria-hidden', 'true');
+  dock.appendChild(pill);
+  dock.classList.add('has-sliding-pill');
   function update() {
     pending = false;
     const readingLine = window.innerHeight * .33;
@@ -109,19 +144,23 @@ document.getElementById('year').textContent = String(new Date().getFullYear());
       if (entry.section.getBoundingClientRect().top <= readingLine) active = entry;
     });
     if (window.scrollY > 0 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) active = entries[entries.length - 1];
-    if (active === current) return;
-    current = active;
+    if (destination) active = destination;
     entries.forEach(entry => {
       if (entry === active) entry.link.setAttribute('aria-current', 'location');
       else entry.link.removeAttribute('aria-current');
     });
     if (active) {
+      pill.style.width = `${active.link.offsetWidth}px`;
+      pill.style.height = `${active.link.offsetHeight}px`;
+      pill.style.top = `${active.link.offsetTop}px`;
+      pill.style.transform = `translateX(${active.link.offsetLeft}px)`;
+      pill.classList.add('is-visible');
       const linkBox = active.link.getBoundingClientRect();
       const dockBox = dock.getBoundingClientRect();
       if (linkBox.left < dockBox.left || linkBox.right > dockBox.right) {
         dock.scrollLeft += linkBox.left - dockBox.left - (dock.clientWidth - linkBox.width) / 2;
       }
-    }
+    } else pill.classList.remove('is-visible');
   }
   function schedule() {
     if (!pending) { pending = true; requestAnimationFrame(update); }
@@ -130,6 +169,14 @@ document.getElementById('year').textContent = String(new Date().getFullYear());
   window.addEventListener('resize', schedule, { passive: true });
   window.addEventListener('pageshow', schedule);
   document.addEventListener('portfolio:boot-end', schedule);
+  document.addEventListener('portfolio:travel-start', event => {
+    destination = entries.find(entry => entry.section.id === event.detail.id) || null;
+    schedule();
+  });
+  document.addEventListener('portfolio:travel-end', () => {
+    destination = null;
+    schedule();
+  });
   if ('ResizeObserver' in window) new ResizeObserver(schedule).observe(document.getElementById('main'));
   schedule();
 })();
@@ -170,7 +217,7 @@ document.getElementById('year').textContent = String(new Date().getFullYear());
      cards.forEach(finish);
    });
  }
- const illustrations = Array.from(section.querySelectorAll('.quadcopter, .smart-room'));
+ const illustrations = Array.from(section.querySelectorAll('.quadcopter, .smart-room, .parking-system, .stealth-visual'));
  const visible = new Set();
  const playback = () => illustrations.forEach(item => item.classList.toggle('is-running', visible.has(item) && !document.hidden));
  if ('IntersectionObserver' in window) {
@@ -194,7 +241,9 @@ document.getElementById('year').textContent = String(new Date().getFullYear());
  function cancel() {
    cancelAnimationFrame(frame);
    frame = 0;
+   const wasTravelling = root.classList.contains('section-travelling');
    root.classList.remove('section-travelling');
+   if (wasTravelling) document.dispatchEvent(new Event('portfolio:travel-end'));
  }
  document.addEventListener('click', event => {
    const link = event.target.closest('a[href^="#"]');
@@ -211,6 +260,7 @@ document.getElementById('year').textContent = String(new Date().getFullYear());
    const duration = Math.min(1400, Math.max(650, Math.abs(distance) * .3));
    if (location.hash !== link.hash) history.pushState(null, '', link.hash);
    root.classList.add('section-travelling');
+   document.dispatchEvent(new CustomEvent('portfolio:travel-start', {detail:{id:target.id}}));
    const began = performance.now();
    function tick(now) {
      const progress = Math.min(1, (now - began) / duration);

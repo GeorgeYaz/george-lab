@@ -24,11 +24,12 @@
       { text: '   routing to portfolio ...', tone: 'boot-route' }
     ];
     const rows = [];
+    const lineInterval = 160;
     output.replaceChildren();
     function typeLines(elapsed) {
       let changed = false;
       lines.forEach((line, index) => {
-        const localTime = elapsed - index * 400;
+        const localTime = elapsed - index * lineInterval;
         if (localTime < 0 && !reducedMotion) return;
         let entry = rows[index];
         if (!entry) {
@@ -129,10 +130,10 @@
       }
       timers.push(setTimeout(typeFirstLine, 24));
       lines.slice(1).forEach((line, index) => {
-        timers.push(setTimeout(() => typeLines(performance.now() - started), (index + 1) * 400));
+        timers.push(setTimeout(() => typeLines(performance.now() - started), (index + 1) * lineInterval));
       });
     }
-    deadline = setTimeout(finish, 3200);
+    deadline = setTimeout(finish, 1400);
   }
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   try {

@@ -53,18 +53,19 @@ function setup({ hash = '', seen = false, reduced = false, storageFails = false 
 }
 const normal = setup();
 assert.equal(normal.ids['boot-output'].children[0].children[0].textContent, ':');
-normal.advance(1200);
+normal.advance(480);
 assert.equal(normal.ids['boot-output'].children[3].children[0].textContent, '[PASS]');
-normal.advance(2400);
+normal.advance(960);
 assert.equal(normal.ids['boot-output'].children[6].children[0].textContent, '   routing to portfolio ...');
-const reads = normal.scrollReads(); normal.advance(3100); assert.equal(normal.scrollReads(), reads);
-normal.advance(3380);
+const reads = normal.scrollReads(); normal.advance(1399); assert.equal(normal.scrollReads(), reads);
+normal.advance(1580);
+assert.equal(normal.ids['boot-screen'].hidden, true, 'Intro must finish within 1.7 seconds, including exit transition');
 assert.equal(normal.win.scrollY, 0); assert.equal(normal.ids.main.inert, false);
 assert.equal(normal.doc.activeElement.id, 'hero-title'); assert.equal(normal.ids['boot-status'].textContent, 'Portfolio ready.');
 assert.equal(normal.timers.size, 0); assert(normal.callbacks() < 25);
-const linked = setup({ hash: '#projects' }); linked.advance(3380);
+const linked = setup({ hash: '#projects' }); linked.advance(1580);
 assert.equal(linked.win.scrollY, 1368); assert.equal(linked.doc.activeElement.id, 'projects-title');
-for(const hash of ['#missing', '#%ZZ']) { const t=setup({hash}); t.advance(3380); assert.equal(t.win.scrollY,0); }
+for(const hash of ['#missing', '#%ZZ']) { const t=setup({hash}); t.advance(1580); assert.equal(t.win.scrollY,0); }
 const escaped=setup(); escaped.doc.dispatchEvent({type:'keydown',key:'Escape'}); escaped.advance(180);
 assert.equal(escaped.ids.main.inert,false); assert.equal(escaped.timers.size,0);
 for(const options of [{seen:true},{storageFails:true},{reduced:true}]) {
