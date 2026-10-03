@@ -4,8 +4,6 @@
 .boot-focus-target:focus{outline:none}
 /* Fixed circuit gutters: 48px to the content, plus 12px to the viewport edge. */
 @media screen{.wrap{width:min(1280px,calc(100% - 120px))}}
-@media screen and (max-width:720px){.wrap{width:calc(100% - 32px)}}
-@media screen and (max-width:720px){.circuit-supply{display:none}}
 .hero-copy,.hero-art{min-width:0}
 .hero .eyebrow{align-items:flex-start}
 .hero .status-dot{flex:0 0 7px;margin-top:.45em}
@@ -145,7 +143,6 @@ body{position:relative;isolation:isolate}
 @media(max-width:900px) and (min-width:721px){.contact{column-gap:40px;grid-template-columns:minmax(0,1fr) 260px}.contact-channel{padding:14px 12px;gap:10px}.contact-channel-icon{width:30px;height:30px}}
 @media(max-width:720px){.contact{grid-template-columns:minmax(0,1fr);row-gap:0}.contact-portrait{grid-column:1;grid-row:4;width:min(100%,300px);margin:36px 0 0;justify-self:center}.contact>.contact-bottom{grid-row:3;margin-top:20px}.contact-channels,.contact-signoff{max-width:none}}
 @media(prefers-reduced-motion:reduce){.contact-channel{transition:none}}
-@media(max-width:720px){.contact-channel{padding:14px;gap:12px}.contact-channel-icon{width:32px;height:32px}}
 
 /* Typed code signature; fixed dimensions prevent the name shifting during typing. */
 .identity-code{position:relative;display:block;flex-shrink:0;width:3.5ch;margin-top:1px;font:32px/1.1 var(--mono);color:var(--text)}

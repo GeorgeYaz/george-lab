@@ -4,8 +4,7 @@ const path = require('path');
 const source = fs.readFileSync(path.join(__dirname, '..', 'scroll-circuit.js'), 'utf8');
 const measure = source.slice(source.indexOf('  function measure()'), source.indexOf('  function render('));
 for (const width of [240, 280, 320, 390, 720, 768, 900, 1024, 1440, 1536, 1544, 1862, 2560]) {
-  const gutter = width <= 720 ? 32 : 120;
-  const contentWidth = Math.min(1280, width - gutter), margin = (width - contentWidth) / 2;
+  const contentWidth = Math.min(1280, width - 120), margin = (width - contentWidth) / 2;
   const sections = Array.from({length: 6}, (_, i) => ({getBoundingClientRect: () => ({left: margin, right: width-margin, top: 144+i*600, height: 600})}));
   const symbol = () => { const attributes = {}; return {group: {setAttribute(k,v){attributes[k]=v;}}, attributes, at: 0}; };
   const classes = new Set();
@@ -26,7 +25,7 @@ for (const width of [240, 280, 320, 390, 720, 768, 900, 1024, 1440, 1536, 1544, 
   assert.equal(sourceY, 136, 'Supply height does not jump on resize');
   assert.equal(scale, .8);
   assert(sourceX - 10 * scale >= 0, 'Supply stays within viewport');
-  if (width > 720) assert(sourceX + 48 * scale <= margin - 9, 'Ground stays clear of the intro text');
+  assert(sourceX + 48 * scale <= margin - 9, 'Ground stays clear of the intro text');
   assert(ctx.points.every(p=>p.x>=0 && p.x<=width));
   assert(ctx.points.every((p,i)=>!i || p.at>ctx.points[i-1].at));
   assert(ctx.mainSwitch.at+30 < ctx.endpoint.at);

@@ -74,7 +74,6 @@
     d: 'M0 0 V-14 M0 -14 a10 10 0 1 0 0 -20 a10 10 0 1 0 0 20 M-3 -20 H3 M0 -23 V-17 M-3 -28 H3 M0 -34 V-42 H40 V-20 M32 -20 H48 M36 -16 H44 M39 -12 H41',
     label: 'DC', x: 15, y: -9
   });
-  supply.group.setAttribute('class', 'circuit-supply');
   // The final segment is a connection metaphor, ending at George rather than ground.
   const endpoint = createSymbol({ d: 'M0 -2 a2 2 0 1 0 0 4 a2 2 0 1 0 0 -4' });
   const binary = document.createElementNS(namespace, 'text');
